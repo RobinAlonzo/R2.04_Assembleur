@@ -1,0 +1,30 @@
+petitCarre: LD R0, %00000000; Efface l'écran
+			OUT R0, 5
+			LD R0, 78
+			LD R1, 50
+			OUT R0, 1
+			OUT R0, 2
+			OUT R1, 3
+			OUT R1, 4
+			LD R0, %11000101; Carré plein 50px
+			OUT R0, 5
+			suite:  IN R0, 0
+					CMP R0, R3
+					BEQ grandCarre
+					JMP suite
+			
+grandCarre: LD R0, %00000000; Efface l'écran
+			OUT R0, 5
+			LD R0, 78; Coord de X
+			LD R1, 100; Largeur et hauteur
+			OUT R0, 1
+			OUT R0, 2
+			OUT R1, 3
+			OUT R1, 4
+			LD R0, %11000101; Carré plein 100px
+			OUT R0, 5
+			JMP boucle
+			
+fin: 		HLT
+			.STACK 10
+			
